@@ -3,6 +3,8 @@ import './App.css'
 import Header from "./components/Header";
 import Blogs from "./components/Blogs";
 import Pagination from "./components/Pagination";
+import { useContext, useEffect } from 'react';
+import { AppContext } from './context/AppContext';
 
 
 
@@ -10,11 +12,16 @@ import Pagination from "./components/Pagination";
 
 function App() {
   
+const {fetchBlogPosts} = useContext(AppContext);
 
+
+useEffect(() =>{
+  fetchBlogPosts();
+},[]);
   return (
     <>
      <div>
-      <h1>Hello</h1>
+      
       <Header></Header>
       <Blogs></Blogs>
       <Pagination></Pagination>
