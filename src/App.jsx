@@ -1,5 +1,12 @@
 
 import './App.css'
+import Header from "./components/Header";
+import Blogs from "./components/Blogs";
+import Pagination from "./components/Pagination";
+
+
+
+
 
 function App() {
   
@@ -7,6 +14,7 @@ function App() {
   return (
     <>
      <div>
+      <h1>Hello</h1>
       <Header></Header>
       <Blogs></Blogs>
       <Pagination></Pagination>
