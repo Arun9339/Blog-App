@@ -18,14 +18,23 @@ function AppContextProvider({ children }) {
 
     // data filling
 
-    async function fetchBlogPosts(page = 1) {
+    async function fetchBlogPosts(page = 1,tag = nill, category ) {
         setLoading(true);
 
         let url = `${baseUrl}?page=${page}`;
 
+        if(tag){
+            url += `&tag=${tag}`;
+        }
+        if(category){
+            url += `&category=${category}`;
+        }
+
         try {
             const result = await fetch(url);
             const data = await result.json();
+            if(!data.posts || data.posts.length === 0)
+                throw new Error("Something went wrong");
             console.log(data);
             setPage(data.page);
             setposts(data.posts);
